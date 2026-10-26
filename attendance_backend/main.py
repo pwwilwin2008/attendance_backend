@@ -36,7 +36,7 @@ if not JWT_SECRET:
         raise RuntimeError("JWT_SECRET must be set when ENVIRONMENT=production")
     JWT_SECRET = "dev-only-secret-change-me-0123456789abcdef"
 # Pixel-correlation matcher: tune with real photos. Replace with a face-embedding model for production.
-FACE_MATCH_THRESHOLD = float(os.getenv("FACE_MATCH_THRESHOLD", "0.30"))
+FACE_MATCH_THRESHOLD = float(os.getenv("FACE_MATCH_THRESHOLD", "0.80"))
 # DEVELOPMENT ONLY: with no enrolled photo, accept the first selfie as the reference. Ignored in production.
 DEV_ENROLL_FIRST_SELFIE = os.getenv("DEV_ENROLL_FIRST_SELFIE", "0") == "1" and ENVIRONMENT.lower() != "production"
 ALLOWED_ORIGINS = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "*").split(",") if o.strip()]
